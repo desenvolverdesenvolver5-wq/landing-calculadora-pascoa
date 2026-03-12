@@ -19,7 +19,7 @@
         .font-serif {
             font-family: 'Playfair Display', serif;
         }
-        /* Custom Animations */
+        /* Animações Customizadas */
         @keyframes bounce-slow {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-12px); }
@@ -33,43 +33,49 @@
             transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .faq-item.active .faq-content {
-            max-height: 300px;
+            max-height: 400px;
         }
         .faq-item.active .chevron {
             transform: rotate(180deg);
+        }
+        .text-glow {
+            text-shadow: 0 0 15px rgba(255, 140, 148, 0.3);
         }
     </style>
 </head>
 <body class="bg-[#FFFAF0] text-[#5D4037] selection:bg-[#FFB7C5] selection:text-white">
 
-    <!-- Urgency Banner -->
+    <!-- Banner de Urgência -->
     <div class="bg-gradient-to-r from-[#FFB7C5] via-[#FFD700] to-[#98FF98] py-2.5 text-center text-[#5D4037] text-xs md:text-sm font-bold uppercase tracking-widest px-4 shadow-sm relative z-[60]">
-        🍫 Oferta de Pré-Páscoa: Aproveite o desconto de 80% somente hoje!
+        🍫 Oferta de Páscoa: O desconto de 70% expira em breve!
     </div>
 
-    <!-- Header Centralizado -->
+    <!-- Frase de Impacto Inicial -->
+    <div class="bg-[#5D4037] text-white py-6 px-4 text-center border-b border-[#FF8C94]/30">
+        <div class="max-w-4xl mx-auto">
+            <p class="text-xl md:text-2xl font-serif italic font-bold leading-relaxed">
+                “Você pode estar vendendo seus ovos de Páscoa mais barato do que deveria — e perdendo dinheiro sem perceber.”
+            </p>
+        </div>
+    </div>
+
+    <!-- Cabeçalho Centralizado -->
     <nav class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-[#FFE4E1] shadow-sm py-4">
-        <div class="max-w-7xl mx-auto px-4 flex justify-center items-center relative">
+        <div class="max-w-7xl mx-auto px-4 flex justify-center items-center">
             <div class="flex flex-col items-center gap-1 group">
                 <div class="flex items-center gap-3">
                     <div class="bg-[#FF8C94] p-1.5 rounded-xl rotate-12 group-hover:rotate-0 transition-all duration-300">
                         <i data-lucide="rabbit" class="text-white w-6 h-6"></i>
                     </div>
-                    <div class="text-4xl md:text-5xl font-serif italic font-black text-[#FF8C94] tracking-tighter">
+                    <div class="text-4xl md:text-5xl font-serif italic font-black text-[#FF8C94] tracking-tighter text-center">
                         Doce <span class="text-[#5D4037]">Lucro</span>
                     </div>
                 </div>
             </div>
-            <!-- Suporte Mobile/Desktop -->
-            <div class="absolute right-4 hidden lg:block">
-                <a href="https://wa.me/5500000000000" class="flex items-center gap-2 bg-[#FF8C94] text-white px-6 py-2 rounded-full hover:bg-[#ff7b85] transition-all font-black shadow-md shadow-[#FF8C94]/20 uppercase text-[10px] tracking-widest">
-                    <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Suporte
-                </a>
-            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Seção Hero -->
     <section class="relative pt-20 pb-16 px-4 overflow-hidden text-center">
         <div class="absolute top-10 left-10 text-[#FFD700]/20 animate-bounce-slow">
             <i data-lucide="sparkles" class="w-12 h-12"></i>
@@ -85,20 +91,20 @@
                     Atenção Confeiteira:
                 </h2>
                 <h1 class="text-4xl md:text-7xl font-serif font-black leading-[1.1] text-[#5D4037] max-w-4xl mx-auto">
-                    Quer começar a vender ovos e <span class="relative inline-block">
-                        não sabe quanto cobrar,
+                    Descubra o preço ideal dos seus ovos de Páscoa e <span class="relative inline-block">
+                        venda com lucro.
                         <div class="absolute -bottom-2 left-0 w-full h-4 bg-[#FFD700]/40 -z-10 rounded-full"></div>
-                    </span> quanto gastar ou quanto vai lucrar?
+                    </span>
                 </h1>
             </div>
             
             <div class="bg-white/50 backdrop-blur-sm p-10 rounded-[3rem] border-2 border-white mb-14 inline-block shadow-sm">
                  <p class="text-2xl md:text-4xl text-stone-600 max-w-3xl mx-auto leading-relaxed font-medium italic">
-                  "Com a <span class="text-[#5D4037] font-black not-italic">Calculadora de Ovos de Páscoa</span>, você descobre tudo em segundos e transforma sua produção em <span class="text-[#2ECC71] font-black not-italic">lucro de verdade</span>."
+                  "Com a <span class="text-[#5D4037] font-black not-italic">Calculadora de Ovos de Páscoa</span>, você descobre tudo em segundos e profissionaliza sua produção."
                 </p>
             </div>
 
-            <!-- Comparison Cards -->
+            <!-- Cards de Comparação -->
             <div class="grid md:grid-cols-2 gap-8 mb-16 text-left">
                 <div class="bg-white p-10 rounded-[3.5rem] border-2 border-[#98FF98] shadow-2xl shadow-[#98FF98]/10 relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
                     <h3 class="text-2xl font-black mb-8 flex items-center gap-3 text-[#5D4037]">
@@ -106,10 +112,10 @@
                         Com ela você consegue:
                     </h3>
                     <ul class="space-y-5 text-lg font-bold text-stone-700">
-                        <li class="flex items-center gap-4"><i data-lucide="calculator" class="text-[#FF8C94]"></i> Calcular o custo exato de cada ovo</li>
-                        <li class="flex items-center gap-4"><i data-lucide="percent" class="text-[#FF8C94]"></i> Definir a margem ideal de venda</li>
-                        <li class="flex items-center gap-4"><i data-lucide="coins" class="text-[#FF8C94]"></i> Saber o lucro real por unidade</li>
-                        <li class="flex items-center gap-4"><i data-lucide="target" class="text-[#FF8C94]"></i> Planejar sua meta financeira</li>
+                        <li class="flex items-center gap-4"><i data-lucide="calculator" class="text-[#FF8C94]"></i> Calcular o custo exato de cada grama</li>
+                        <li class="flex items-center gap-4"><i data-lucide="percent" class="text-[#FF8C94]"></i> Definir sua margem de lucro real</li>
+                        <li class="flex items-center gap-4"><i data-lucide="coins" class="text-[#FF8C94]"></i> Saber quanto sobra no seu bolso</li>
+                        <li class="flex items-center gap-4"><i data-lucide="target" class="text-[#FF8C94]"></i> Planejar suas metas de faturamento</li>
                     </ul>
                 </div>
 
@@ -119,14 +125,14 @@
                         Chega de:
                     </h3>
                     <ul class="space-y-5 text-lg font-bold text-stone-700/60">
-                        <li class="flex items-center gap-4 line-through decoration-[#FF8C94] decoration-2"><i data-lucide="x-circle" class="text-[#FF8C94]/50"></i> Vender barato e ter prejuízo</li>
-                        <li class="flex items-center gap-4 line-through decoration-[#FF8C94] decoration-2"><i data-lucide="x-circle" class="text-[#FF8C94]/50"></i> Calcular tudo no papel</li>
-                        <li class="flex items-center gap-4 line-through decoration-[#FF8C94] decoration-2"><i data-lucide="x-circle" class="text-[#FF8C94]/50"></i> Perder dinheiro sem perceber</li>
+                        <li class="flex items-center gap-4 line-through decoration-[#FF8C94] decoration-2"><i data-lucide="x-circle" class="text-[#FF8C94]/50"></i> Pagar para trabalhar (prejuízo)</li>
+                        <li class="flex items-center gap-4 line-through decoration-[#FF8C94] decoration-2"><i data-lucide="x-circle" class="text-[#FF8C94]/50"></i> Horas perdidas em planilhas chatas</li>
+                        <li class="flex items-center gap-4 line-through decoration-[#FF8C94] decoration-2"><i data-lucide="x-circle" class="text-[#FF8C94]/50"></i> Insegurança na hora de passar o preço</li>
                     </ul>
                 </div>
             </div>
 
-            <!-- VSL Section -->
+            <!-- VSL Placeholder -->
             <div class="relative aspect-video w-full max-w-4xl mx-auto bg-stone-900 rounded-[3rem] overflow-hidden shadow-[0_30px_70px_rgba(255,140,148,0.4)] mb-16 border-[12px] border-white group cursor-pointer">
                 <img src="https://images.unsplash.com/photo-1522336572468-97b06e8ef143?q=80&w=2076&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-1000">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
@@ -137,47 +143,82 @@
                 </div>
             </div>
 
+            <!-- Contador Regressivo (15 Minutos) -->
+            <div class="flex flex-col items-center gap-3 mb-8">
+                <p class="text-[#FF8C94] font-black text-sm uppercase tracking-widest flex items-center gap-2">
+                    <i data-lucide="clock" class="w-5 h-5 animate-pulse"></i> ⚠️ Oferta termina em:
+                </p>
+                <div class="flex gap-4">
+                    <div class="bg-white px-6 py-3 rounded-2xl border-2 border-[#FFE4E1] shadow-sm min-w-[90px]">
+                        <span class="timer-min text-3xl md:text-4xl font-black text-[#5D4037]">15</span>
+                        <span class="text-[10px] block font-bold text-[#FF8C94] uppercase tracking-tighter">Minutos</span>
+                    </div>
+                    <div class="text-3xl md:text-4xl font-black text-[#5D4037] self-center mb-4">:</div>
+                    <div class="bg-white px-6 py-3 rounded-2xl border-2 border-[#FFE4E1] shadow-sm min-w-[90px]">
+                        <span class="timer-sec text-3xl md:text-4xl font-black text-[#5D4037]">00</span>
+                        <span class="text-[10px] block font-bold text-[#FF8C94] uppercase tracking-tighter">Segundos</span>
+                    </div>
+                </div>
+            </div>
+
             <a href="#checkout" class="group w-full sm:w-auto bg-[#FF8C94] text-white text-2xl md:text-4xl px-20 py-10 rounded-[3rem] font-black shadow-2xl hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-5 mx-auto border-b-[12px] border-[#e6737c] no-underline">
-                SIM! QUERO LUCRAR NA PÁSCOA
+                COMPRAR COM DESCONTO AGORA
                 <i data-lucide="arrow-right" class="group-hover:translate-x-3 transition-transform w-10 h-10"></i>
             </a>
         </div>
     </section>
 
-    <!-- Super Bônus -->
+    <!-- SEÇÃO: SUPER BÔNUS DESTACADO (Rosa da Marca) -->
     <section class="py-24 px-4 relative overflow-hidden bg-white">
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[150%] h-full bg-gradient-to-b from-[#FFF5F7] to-white -skew-y-3 origin-center -z-10"></div>
         <div class="max-w-7xl mx-auto">
-            <div class="relative bg-gradient-to-br from-[#FF8C94] via-[#FFB7C5] to-[#FFD700] rounded-[5rem] p-1.5 md:p-3 shadow-[0_50px_120px_rgba(255,140,148,0.5)]">
+            <div class="relative bg-gradient-to-br from-[#FF8C94] via-[#FFB7C5] to-[#FF8C94] rounded-[5rem] p-2 md:p-4 shadow-[0_50px_100px_rgba(255,140,148,0.3)] border-4 border-white">
                 <div class="bg-white rounded-[4.5rem] p-10 md:p-24 flex flex-col lg:flex-row items-center gap-20 overflow-hidden relative">
                     
                     <div class="flex-1 text-center lg:text-left z-10">
-                        <div class="inline-flex items-center gap-3 px-8 py-3 bg-[#FFFAF0] text-[#FF8C94] rounded-full font-black text-sm mb-10 shadow-md border-2 border-[#FFE4E1] animate-bounce">
-                            <i data-lucide="gem" class="w-6 h-6"></i> PRESENTE EXCLUSIVO PARA VOCÊ
+                        <div class="inline-flex items-center gap-3 px-8 py-3 bg-[#FFF5F7] text-[#FF8C94] rounded-full font-black text-sm mb-10 shadow-md border-2 border-[#FFE4E1] animate-bounce">
+                            <i data-lucide="gem" class="w-6 h-6"></i> PRESENTE EXCLUSIVO E LIMITADO
                         </div>
                         <h2 class="text-5xl md:text-8xl font-serif font-black mb-8 leading-tight text-[#5D4037]">
-                            SUPER BÔNUS: <br/>
-                            <span class="text-[#FF8C94] italic underline decoration-[#FFD700]">Planilha Mágica de Precificação</span>
+                            <span class="text-[#FF8C94] block mb-2 uppercase text-3xl tracking-widest italic font-sans">Super Bônus:</span>
+                            Planilha Inteligente de Precificação
                         </h2>
-                        <div class="mb-12">
-                            <p class="text-4xl text-[#2ECC71] font-black tracking-tighter uppercase italic drop-shadow-sm">Grátis de Presente para você!</p>
-                            <p class="text-stone-400 mt-3 font-bold uppercase tracking-widest text-xs">Liberação imediata após a compra</p>
-                        </div>
-                        <p class="text-2xl text-stone-600 mb-12 leading-relaxed font-medium">
-                            Não é apenas uma planilha, é a sua liberdade financeira. Calcule custos, defina margens e veja o lucro cair na conta de forma automática.
+                        
+                        <p class="text-2xl text-stone-600 mb-12 leading-relaxed font-bold">
+                            Além da calculadora, você também recebe uma planilha inteligente que mostra exatamente quanto cobrar por cada ovo de Páscoa.
                         </p>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 text-left">
-                            <div class="flex flex-col bg-[#FFFAF0] p-8 rounded-[2.5rem] border-2 border-[#FFE4E1] hover:border-[#FF8C94] transition-all group shadow-sm">
-                                <div class="flex items-center gap-3 mb-3 text-[#5D4037]"><i data-lucide="coins" class="text-[#FF8C94]"></i> <span class="font-black text-xl">Preço de Custo</span></div>
-                                <span class="text-lg text-stone-500 font-medium">Saiba centavo por centavo</span>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                            <div class="flex items-center gap-4 bg-[#FFFAF0] p-6 rounded-3xl border-2 border-[#FFE4E1]">
+                                <i data-lucide="search" class="text-[#FF8C94] w-8 h-8"></i>
+                                <span class="font-bold text-lg text-[#5D4037]">Descobrir o custo real de cada ovo</span>
                             </div>
-                            <div class="flex flex-col bg-[#FFFAF0] p-8 rounded-[2.5rem] border-2 border-[#FFE4E1] hover:border-[#FF8C94] transition-all group shadow-sm">
-                                <div class="flex items-center gap-3 mb-3 text-[#5D4037]"><i data-lucide="bar-chart-3" class="text-[#FF8C94]"></i> <span class="font-black text-xl">Margem de Venda</span></div>
-                                <span class="text-lg text-stone-500 font-medium">Defina quanto quer ganhar</span>
+                            <div class="flex items-center gap-4 bg-[#FFFAF0] p-6 rounded-3xl border-2 border-[#FFE4E1]">
+                                <i data-lucide="trending-up" class="text-[#FF8C94] w-8 h-8"></i>
+                                <span class="font-bold text-lg text-[#5D4037]">Calcular a margem de lucro automaticamente</span>
                             </div>
+                            <div class="flex items-center gap-4 bg-[#FFFAF0] p-6 rounded-3xl border-2 border-[#FFE4E1]">
+                                <i data-lucide="target" class="text-[#FF8C94] w-8 h-8"></i>
+                                <span class="font-bold text-lg text-[#5D4037]">Saber o preço ideal para vender</span>
+                            </div>
+                            <div class="flex items-center gap-4 bg-[#FFFAF0] p-6 rounded-3xl border-2 border-[#FFE4E1]">
+                                <i data-lucide="alert-triangle" class="text-[#FF8C94] w-8 h-8"></i>
+                                <span class="font-bold text-lg text-[#5D4037]">Evitar vender barato e ter prejuízo</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-[#5D4037] text-white p-8 rounded-[2.5rem] flex flex-col md:flex-row items-center gap-6 shadow-xl border-4 border-[#FF8C94]">
+                            <div class="flex gap-4">
+                                <i data-lucide="smartphone" class="w-10 h-10 text-[#FFB7C5]"></i>
+                                <i data-lucide="monitor" class="w-10 h-10 text-[#FFB7C5]"></i>
+                            </div>
+                            <p class="text-xl font-black uppercase tracking-widest text-center md:text-left">
+                                Funciona no <span class="text-[#FFB7C5]">Celular</span> e no <span class="text-[#FFB7C5]">Computador</span>
+                            </p>
                         </div>
                     </div>
-                    <!-- Mockup -->
+
+                    <!-- Mockup Visual -->
                     <div class="flex-1 w-full flex justify-center z-10 lg:pr-10">
                         <div class="relative group w-full max-w-lg scale-110">
                             <div class="absolute inset-0 bg-[#FF8C94] rounded-[4rem] blur-[80px] opacity-30"></div>
@@ -187,8 +228,8 @@
                                         <i data-lucide="shopping-bag" class="text-[#FF8C94] mb-4 animate-bounce w-16 h-16"></i>
                                         <p class="text-[#5D4037] font-black text-lg uppercase tracking-widest">Download Imediato</p>
                                     </div>
-                                    <div class="bg-[#FF8C94] py-6 rounded-3xl flex items-center justify-center text-white font-black text-xl shadow-2xl shadow-[#FF8C94]/40 cursor-pointer">
-                                        BAIXAR AGORA 📥
+                                    <div class="bg-[#FF8C94] py-6 rounded-3xl flex items-center justify-center text-white font-black text-xl shadow-2xl shadow-[#FF8C94]/40 cursor-pointer hover:bg-[#ff7b85] transition-colors">
+                                        RECEBER AGORA 📥
                                     </div>
                                 </div>
                             </div>
@@ -199,22 +240,45 @@
         </div>
     </section>
 
-    <!-- Como Funciona Section -->
-    <section class="py-24 px-4 bg-[#FFFAF0]">
-        <div class="max-w-7xl mx-auto flex flex-col gap-20">
-            <div class="text-center w-full">
-                <h2 class="text-5xl md:text-7xl font-serif font-black leading-tight italic text-[#FF8C94]">
-                    Tão fácil que <br/> parece mágica!
-                </h2>
+    <!-- Seção: O que você recebe -->
+    <section class="py-24 px-4 bg-white">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-4xl md:text-6xl font-serif font-black text-[#5D4037] mb-16">O que você recebe ao comprar:</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Item 1 -->
+                <div class="bg-[#FFFAF0] p-10 rounded-[3rem] border-2 border-[#FFE4E1] hover:border-[#FF8C94] transition-all group">
+                    <i data-lucide="calculator" class="text-[#FF8C94] w-12 h-12 mb-6 mx-auto"></i>
+                    <h4 class="text-2xl font-black mb-4">Calculadora de Ovos</h4>
+                    <p class="text-stone-600">Descubra centavo por centavo o custo da sua produção em segundos.</p>
+                </div>
+                <!-- Item 2 -->
+                <div class="bg-[#FFFAF0] p-10 rounded-[3rem] border-2 border-[#FFE4E1] hover:border-[#FF8C94] transition-all group">
+                    <i data-lucide="gift" class="text-[#FF8C94] w-12 h-12 mb-6 mx-auto"></i>
+                    <h4 class="text-2xl font-black mb-4">Planilha Bônus</h4>
+                    <p class="text-stone-600">A ferramenta perfeita para definir suas margens e preço ideal.</p>
+                </div>
+                <!-- Item 3 -->
+                <div class="bg-[#FFFAF0] p-10 rounded-[3rem] border-2 border-[#FFE4E1] hover:border-[#FF8C94] transition-all group">
+                    <i data-lucide="zap" class="text-[#FF8C94] w-12 h-12 mb-6 mx-auto"></i>
+                    <h4 class="text-2xl font-black mb-4">Acesso Imediato</h4>
+                    <p class="text-stone-600">Receba acesso ao sistema logo após a confirmação do pagamento.</p>
+                </div>
             </div>
-            
-            <div class="flex flex-col md:flex-row items-center gap-24">
+        </div>
+    </section>
+
+    <!-- Seção: Como Funciona -->
+    <section class="py-24 px-4 bg-[#FFFAF0]">
+        <div class="max-w-7xl mx-auto flex flex-col gap-20 text-center">
+            <h2 class="text-5xl md:text-7xl font-serif font-black italic text-[#FF8C94]">
+                Tão fácil que <br/> parece mágica!
+            </h2>
+            <div class="flex flex-col md:flex-row items-center gap-24 text-left">
                 <div class="flex-1 relative order-2 md:order-1">
                    <div class="absolute -inset-8 bg-gradient-to-tr from-[#FFD700] to-[#FF8C94] rounded-[4rem] blur-3xl opacity-20"></div>
                    <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=1964&auto=format&fit=crop" class="relative rounded-[4rem] shadow-2xl border-[12px] border-white object-cover h-[700px] w-full transform hover:scale-105 transition-transform duration-700">
                 </div>
-                <div class="flex-1 space-y-12 order-1 md:order-2">
-                    <!-- Step 1 -->
+                <div class="flex-1 space-y-12 order-1 md:order-2 text-[#5D4037]">
                     <div class="flex gap-8 group">
                         <div class="text-7xl font-serif italic text-[#FFD700] font-black opacity-30 leading-none">01</div>
                         <div>
@@ -222,7 +286,6 @@
                             <p class="text-xl text-stone-600 leading-relaxed font-medium">Coloque o quanto pagou no chocolate e nas embalagens fofas.</p>
                         </div>
                     </div>
-                    <!-- Step 2 -->
                     <div class="flex gap-8 group">
                         <div class="text-7xl font-serif italic text-[#FFD700] font-black opacity-30 leading-none">02</div>
                         <div>
@@ -230,12 +293,11 @@
                             <p class="text-xl text-stone-600 leading-relaxed font-medium">A calculadora diz quanto cobrar pela sua hora de trabalho.</p>
                         </div>
                     </div>
-                    <!-- Step 3 -->
                     <div class="flex gap-8 group">
                         <div class="text-7xl font-serif italic text-[#FFD700] font-black opacity-30 leading-none">03</div>
                         <div>
                             <h4 class="text-3xl font-black mb-3 flex items-center gap-3"><i data-lucide="trending-up" class="text-[#FF8C94]"></i> Lucro no Bolso</h4>
-                            <p class="text-xl text-stone-600 leading-relaxed font-medium">Veja o preço final sugerido com a margem de lucro que você merece.</p>
+                            <p class="text-xl text-stone-600 leading-relaxed font-medium">Pronto! Você tem o preço ideal com lucro garantido.</p>
                         </div>
                     </div>
                 </div>
@@ -243,15 +305,15 @@
         </div>
     </section>
 
-    <!-- Testemunhos -->
-    <section class="py-24 px-4 bg-white text-center">
+    <!-- Testemunhos Reais -->
+    <section class="py-24 px-4 bg-white text-center text-[#5D4037]">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-5xl md:text-7xl font-serif font-black leading-tight mb-20 text-[#5D4037]">
-                Quem usa, <span class="text-[#FF8C94]">recomenda!</span>
+            <h2 class="text-5xl md:text-7xl font-serif font-black leading-tight mb-20">
+                Confeiteiras que <span class="text-[#FF8C94]">lucraram mais:</span>
             </h2>
-            <div class="grid md:grid-cols-3 gap-12 mt-16 text-left">
-                <!-- Depoimento 1 -->
-                <div class="bg-[#FFF9F5] p-12 rounded-[3.5rem] border-2 border-[#FFE4E1] relative hover:shadow-2xl transition-all hover:-translate-y-4 duration-300">
+            <div class="grid md:grid-cols-3 gap-12 text-left">
+                <!-- Amanda -->
+                <div class="bg-[#FFFAF0] p-12 rounded-[3.5rem] border-2 border-[#FFE4E1] shadow-lg hover:-translate-y-2 transition-transform">
                     <div class="flex text-[#FFD700] mb-8">
                         <i data-lucide="star" class="w-5 h-5 fill-[#FFD700]"></i>
                         <i data-lucide="star" class="w-5 h-5 fill-[#FFD700]"></i>
@@ -259,17 +321,17 @@
                         <i data-lucide="star" class="w-5 h-5 fill-[#FFD700]"></i>
                         <i data-lucide="star" class="w-5 h-5 fill-[#FFD700]"></i>
                     </div>
-                    <p class="text-xl italic text-stone-700 mb-12 leading-relaxed font-medium">"Minha Páscoa mudou depois que comecei a usar a calculadora. Descobri que estava tendo prejuízo em alguns ovos!"</p>
+                    <p class="text-xl italic text-stone-700 mb-12 leading-relaxed">"Eu sempre vendi por 'feeling'. Quando usei a calculadora, vi que estava perdendo quase 20 reais por ovo de colher. Ajustei no mesmo dia!"</p>
                     <div class="flex items-center gap-5">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop" class="w-20 h-20 rounded-full object-cover border-4 border-white shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop" class="w-20 h-20 rounded-full object-cover border-4 border-[#FF8C94] shadow-xl">
                         <div>
-                            <p class="font-black text-xl text-[#5D4037]">Maria Clara</p>
-                            <p class="text-sm text-[#FF8C94] font-black uppercase tracking-widest">Doceria Gourmet</p>
+                            <p class="font-black text-xl">Amanda Costa</p>
+                            <p class="text-sm text-[#FF8C94] font-black uppercase">Confeiteira Autônoma</p>
                         </div>
                     </div>
                 </div>
-                <!-- Depoimento 2 -->
-                <div class="bg-[#FFF9F5] p-12 rounded-[3.5rem] border-2 border-[#FFE4E1] relative hover:shadow-2xl transition-all hover:-translate-y-4 duration-300">
+                <!-- Renata -->
+                <div class="bg-[#FFFAF0] p-12 rounded-[3.5rem] border-2 border-[#FFE4E1] shadow-lg hover:-translate-y-2 transition-transform">
                     <div class="flex text-[#FFD700] mb-8">
                         <i data-lucide="star" class="w-5 h-5 fill-[#FFD700]"></i>
                         <i data-lucide="star" class="w-5 h-5 fill-[#FFD700]"></i>
@@ -277,17 +339,17 @@
                         <i data-lucide="star" class="w-5 h-5 fill-[#FFD700]"></i>
                         <i data-lucide="star" class="w-5 h-5 fill-[#FFD700]"></i>
                     </div>
-                    <p class="text-xl italic text-stone-700 mb-12 leading-relaxed font-medium">"A planilha de brinde é maravilhosa. Consigo ver minha margem de lucro exata enquanto monto o cardápio."</p>
+                    <p class="text-xl italic text-stone-700 mb-12 leading-relaxed">"O que eu levava a manhã inteira para calcular com caderno, agora resolvo em minutos. Uso direto no meu Android enquanto estou na cozinha."</p>
                     <div class="flex items-center gap-5">
-                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop" class="w-20 h-20 rounded-full object-cover border-4 border-white shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?q=80&w=1974&auto=format&fit=crop" class="w-20 h-20 rounded-full object-cover border-4 border-[#FF8C94] shadow-xl">
                         <div>
-                            <p class="font-black text-xl text-[#5D4037]">Juliana Silva</p>
-                            <p class="text-sm text-[#FF8C94] font-black uppercase tracking-widest">Atelier de Chocolates</p>
+                            <p class="font-black text-xl">Renata Souza</p>
+                            <p class="text-sm text-[#FF8C94] font-black uppercase">Dona de Ateliê</p>
                         </div>
                     </div>
                 </div>
-                <!-- Depoimento 3 -->
-                <div class="bg-[#FFF9F5] p-12 rounded-[3.5rem] border-2 border-[#FFE4E1] relative hover:shadow-2xl transition-all hover:-translate-y-4 duration-300">
+                <!-- Juliana -->
+                <div class="bg-[#FFFAF0] p-12 rounded-[3.5rem] border-2 border-[#FFE4E1] shadow-lg hover:-translate-y-2 transition-transform">
                     <div class="flex text-[#FFD700] mb-8">
                         <i data-lucide="star" class="w-5 h-5 fill-[#FFD700]"></i>
                         <i data-lucide="star" class="w-5 h-5 fill-[#FFD700]"></i>
@@ -295,12 +357,12 @@
                         <i data-lucide="star" class="w-5 h-5 fill-[#FFD700]"></i>
                         <i data-lucide="star" class="w-5 h-5 fill-[#FFD700]"></i>
                     </div>
-                    <p class="text-xl italic text-stone-700 mb-12 leading-relaxed font-medium">"Simples, prática e muito linda. O design ajuda muito na hora de entender os números reais do negócio."</p>
+                    <p class="text-xl italic text-stone-700 mb-12 leading-relaxed">"A planilha de brinde é sensacional. Ela já me dá o preço de venda certinho baseado no lucro que eu quero ter. Valeu cada centavo!"</p>
                     <div class="flex items-center gap-5">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop" class="w-20 h-20 rounded-full object-cover border-4 border-white shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop" class="w-20 h-20 rounded-full object-cover border-4 border-[#FF8C94] shadow-xl">
                         <div>
-                            <p class="font-black text-xl text-[#5D4037]">Beatriz Santos</p>
-                            <p class="text-sm text-[#FF8C94] font-black uppercase tracking-widest">Confeiteira Autônoma</p>
+                            <p class="font-black text-xl">Juliana Alves</p>
+                            <p class="text-sm text-[#FF8C94] font-black uppercase">Especialista em Doces</p>
                         </div>
                     </div>
                 </div>
@@ -309,38 +371,56 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-24 px-4 bg-[#FFFAF0]">
+    <section class="py-24 px-4 bg-white">
         <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-20">
+            <div class="text-center mb-20 text-[#5D4037]">
                 <i data-lucide="rabbit" class="mx-auto mb-6 w-16 h-16 text-[#FF8C94]"></i>
-                <h2 class="text-5xl font-serif font-black text-[#5D4037]">Dúvidas Frequentes</h2>
+                <h2 class="text-5xl font-serif font-black">Dúvidas Frequentes</h2>
             </div>
             <div class="space-y-6" id="faq-container">
-                <!-- FAQs will be generated via JS -->
+                <!-- FAQ via JS -->
             </div>
         </div>
     </section>
 
     <!-- CTA Final -->
-    <section id="checkout" class="py-24 px-4 mb-32 text-center">
-        <div class="max-w-6xl mx-auto bg-[#5D4037] rounded-[5rem] p-16 md:p-32 text-white relative overflow-hidden shadow-[0_40px_100px_rgba(93,64,55,0.5)] border-[10px] border-[#6D4C41]">
+    <section id="checkout" class="py-24 px-4 mb-32 text-center text-white">
+        <div class="max-w-6xl mx-auto bg-[#5D4037] rounded-[5rem] p-16 md:p-32 relative overflow-hidden shadow-2xl border-[10px] border-[#6D4C41]">
             <div class="absolute top-0 right-0 p-10 opacity-10 text-[#FFD700] scale-150 rotate-12">
                 <i data-lucide="rabbit" class="w-64 h-64"></i>
             </div>
             
             <div class="relative z-10">
                 <h2 class="text-5xl md:text-8xl font-serif font-black mb-14 leading-tight italic">
-                    Sua Páscoa Lucrativa <br/> Começa Aqui!
+                    Sua Páscoa Lucrativa <br/> Começa Agora!
                 </h2>
                 
                 <div class="mb-16 flex flex-col items-center">
-                    <span class="bg-white/10 px-8 py-3 rounded-full text-[#FFB7C5] line-through text-2xl mb-6 font-bold">De R$ 97,90</span>
-                    <div class="text-8xl md:text-9xl font-black text-[#FFD700] drop-shadow-[0_10px_10px_rgba(0,0,0,0.3)]">R$ 29,90</div>
+                    <span class="bg-white/10 px-8 py-3 rounded-full text-[#FFB7C5] line-through text-2xl mb-6 font-bold">De R$ 97,00</span>
+                    <div class="text-8xl md:text-9xl font-black text-[#FFD700] drop-shadow-[0_10px_10px_rgba(0,0,0,0.3)]">R$ 29,99</div>
                     <p class="mt-6 text-[#FFB7C5] font-black tracking-[0.3em] uppercase text-sm">Pagamento Único • Acesso Vitalício</p>
                 </div>
 
-                <a href="#" class="group w-full md:w-auto bg-[#FF8C94] text-white text-3xl px-20 py-10 rounded-[3rem] font-black shadow-2xl hover:scale-110 active:scale-95 transition-all flex items-center justify-center gap-5 mx-auto border-b-[12px] border-[#e6737c] no-underline">
-                    GARANTIR MINHA VAGA 🍫
+                <!-- Timer Section Final -->
+                <div class="flex flex-col items-center gap-3 mb-10">
+                    <p class="text-[#FFB7C5] font-bold text-sm uppercase tracking-widest flex items-center gap-2">
+                        <i data-lucide="zap" class="w-4 h-4 text-[#FFD700]"></i> ⚠️ Oferta termina em:
+                    </p>
+                    <div class="flex gap-4 text-[#5D4037]">
+                        <div class="bg-white px-6 py-4 rounded-2xl shadow-xl min-w-[100px]">
+                            <span class="timer-min text-4xl font-black">15</span>
+                            <span class="text-[10px] block font-black text-[#FF8C94] uppercase mt-1">Minutos</span>
+                        </div>
+                        <div class="text-4xl font-black text-white self-center mb-6">:</div>
+                        <div class="bg-white px-6 py-4 rounded-2xl shadow-xl min-w-[100px]">
+                            <span class="timer-sec text-4xl font-black">00</span>
+                            <span class="text-[10px] block font-black text-[#FF8C94] uppercase mt-1">Segundos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="group w-full md:w-auto bg-[#FF8C94] text-white text-3xl px-20 py-10 rounded-[3rem] font-black shadow-2xl hover:scale-110 active:scale-90 transition-all flex items-center justify-center gap-5 mx-auto border-b-[12px] border-[#e6737c] no-underline uppercase">
+                    COMPRAR COM DESCONTO HOJE
                     <i data-lucide="arrow-right" class="w-12 h-12 group-hover:translate-x-3 transition-transform"></i>
                 </a>
                 
@@ -358,79 +438,94 @@
                 <div class="bg-[#FF8C94] p-3 rounded-2xl">
                     <i data-lucide="rabbit" class="text-white w-10 h-10"></i>
                 </div>
-                <span class="text-4xl font-serif italic font-black tracking-tighter">Doce Lucro</span>
+                <span class="text-4xl font-serif italic font-black tracking-tighter text-white">Doce Lucro</span>
             </div>
-            <p class="opacity-50 text-lg mb-12 font-medium">© 2026 Todos os direitos reservados. Transformando confeiteiras em empreendedoras de sucesso.</p>
+            <p class="opacity-50 text-lg mb-12 font-medium">© 2026 Todos os direitos reservados. Lucrar com chocolate nunca foi tão fácil.</p>
         </div>
     </footer>
 
-    <!-- Botão WhatsApp Flutuante -->
-    <a href="https://wa.me/5500000000000" class="fixed bottom-10 right-10 z-[100] bg-[#25D366] text-white p-6 rounded-[2.5rem] shadow-2xl hover:scale-110 active:scale-90 transition-all flex items-center gap-4 font-black text-lg shadow-[0_10px_40px_rgba(37,211,102,0.4)]">
-        <i data-lucide="message-circle" class="w-10 h-10"></i>
-        <span class="hidden lg:inline">Dúvidas? Fale comigo</span>
-    </a>
-
     <!-- Scripts -->
     <script>
-        // Data for FAQ
+        // Dados do FAQ
         const faqs = [
             {
-                question: "Preciso ter o Excel instalado?",
-                answer: "A Calculadora é uma ferramenta online acessível por qualquer navegador, mas a Planilha de Brinde é enviada em formato .xlsx, compatível com Excel e Google Sheets."
+                question: "Funciona no celular?",
+                answer: "Sim! A Calculadora e a Planilha Inteligente foram desenhadas para funcionar perfeitamente em qualquer dispositivo: celular (Android ou iPhone), tablet e computador (Windows ou Mac)."
             },
             {
-                question: "Funciona no telemóvel?",
-                answer: "Sim! Tanto a calculadora quanto a landing page foram desenhadas para uma experiência perfeita em dispositivos móveis."
+                question: "Preciso saber usar planilha?",
+                answer: "Não! Você não precisa ser expert. O sistema é intuitivo: você digita os valores que pagou nos ingredientes e a ferramenta faz todo o cálculo automático de custo e lucro por você."
             },
             {
                 question: "Como recebo o acesso?",
-                answer: "Imediatamente após a confirmação do pagamento, você recebe os links de acesso e download direto no seu e-mail."
+                answer: "O acesso é imediato! Assim que o seu pagamento for confirmado (via PIX ou Cartão), você recebe automaticamente um e-mail com o link para acessar a calculadora e baixar seus bônus."
             },
             {
-                question: "Tenho suporte se tiver dúvidas?",
-                answer: "Com certeza! Você terá acesso direto ao nosso suporte via WhatsApp para qualquer dúvida técnica ou de precificação."
+                question: "Tem garantia?",
+                answer: "Sim! Oferecemos uma garantia incondicional de 7 dias. Se por qualquer motivo você achar que não é para você, basta nos enviar um e-mail e devolvemos 100% do seu dinheiro."
             }
         ];
 
-        // Function to render FAQs
+        // Renderizar FAQ
         function renderFaqs() {
             const container = document.getElementById('faq-container');
             container.innerHTML = faqs.map((faq, index) => `
-                <div class="faq-item bg-white rounded-[2.5rem] overflow-hidden border-2 border-[#FFE4E1] transition-all hover:border-[#FF8C94]">
+                <div class="faq-item bg-[#FFFAF0] rounded-[2.5rem] overflow-hidden border-2 border-[#FFE4E1] transition-all hover:border-[#FF8C94]">
                     <button onclick="toggleFaq(${index})" class="w-full flex justify-between items-center p-8 md:p-10 text-left font-black text-xl md:text-2xl text-[#5D4037]">
                         ${faq.question}
                         <i data-lucide="chevron-down" class="chevron text-[#FF8C94] transition-transform duration-300 w-8 h-8"></i>
                     </button>
                     <div class="faq-content">
-                        <div class="px-8 md:px-10 pb-8 md:pb-10 text-stone-600 text-lg md:text-xl leading-relaxed">
+                        <div class="px-8 md:px-10 pb-8 md:pb-10 text-stone-600 text-lg md:text-xl leading-relaxed font-medium">
                             ${faq.answer}
                         </div>
                     </div>
                 </div>
             `).join('');
-            
-            // Re-initialize icons for dynamic content
             lucide.createIcons();
         }
 
-        // Global function for accordion
+        // Lógica do Timer (15 Minutos)
+        let timeLeft = 15 * 60; 
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+
+            const minStrings = String(minutes).padStart(2, '0');
+            const secStrings = String(seconds).padStart(2, '0');
+
+            document.querySelectorAll('.timer-min').forEach(el => el.textContent = minStrings);
+            document.querySelectorAll('.timer-sec').forEach(el => el.textContent = secStrings);
+            
+            if (timeLeft <= 60) {
+                document.querySelectorAll('.timer-sec, .timer-min').forEach(el => el.classList.add('text-red-500'));
+            }
+        }
+
+        function startCountdown() {
+            const timerInterval = setInterval(() => {
+                if (timeLeft > 0) {
+                    timeLeft--;
+                    updateTimerDisplay();
+                } else {
+                    clearInterval(timerInterval);
+                }
+            }, 1000);
+        }
+
         window.toggleFaq = (index) => {
             const items = document.querySelectorAll('.faq-item');
             const clickedItem = items[index];
             const isActive = clickedItem.classList.contains('active');
-
-            // Close all items
             items.forEach(item => item.classList.remove('active'));
-
-            // If it wasn't active, open it
-            if (!isActive) {
-                clickedItem.classList.add('active');
-            }
+            if (!isActive) clickedItem.classList.add('active');
         };
 
-        // Initialize everything
         window.onload = () => {
             renderFaqs();
+            updateTimerDisplay();
+            startCountdown();
             lucide.createIcons();
         };
     </script>
