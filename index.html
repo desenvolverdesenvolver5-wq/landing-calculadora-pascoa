@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Google Fonts: Montserrat (Autoridade), Fraunces (Premium), Inter (Leitura) -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,900;1,9..144,900&family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     
     <style>
@@ -21,6 +21,7 @@
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
             color: #4A3728;
+            overflow-x: hidden;
         }
         .font-heading {
             font-family: 'Montserrat', sans-serif;
@@ -35,7 +36,7 @@
             50% { transform: translateY(-12px); }
         }
         .animate-bounce-slow {
-            animation: bounce-slow 4s infinite ease-in-out;
+            animation: bounce-slow 3s infinite ease-in-out;
         }
         .faq-content {
             max-height: 0;
@@ -43,13 +44,23 @@
             transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .faq-item.active .faq-content {
-            max-height: 400px;
+            max-height: 500px;
         }
         .faq-item.active .chevron {
             transform: rotate(180deg);
         }
-        .text-glow {
-            text-shadow: 0 0 20px rgba(255, 140, 148, 0.3);
+        .vsl-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        .vsl-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
         .bg-pattern {
             background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23 71c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-38-56c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5z' fill='%23ff8c94' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
@@ -58,213 +69,177 @@
 </head>
 <body class="bg-[#FFFAF8] selection:bg-[#FFB7C5] selection:text-white bg-pattern">
 
-    <!-- Banner de Urgência -->
-    <div class="bg-[#FF8C94] py-3 text-center text-white text-xs md:text-sm font-black uppercase tracking-[0.2em] px-4 shadow-md sticky top-0 z-[100]">
+    <!-- Urgency Banner -->
+    <div class="bg-[#FF8C94] py-3 text-center text-white text-[10px] md:text-sm font-black uppercase tracking-[0.15em] px-4 shadow-md sticky top-0 z-[100]">
         🔥 OFERTA DE PÁSCOA: DESCONTO DE 70% LIBERADO POR TEMPO LIMITADO!
     </div>
 
     <!-- Frase de Impacto Inicial -->
-    <div class="bg-[#4A3728] text-white py-12 px-6 text-center shadow-lg">
+    <div class="bg-[#4A3728] text-white py-10 md:py-14 px-6 text-center shadow-lg border-b border-[#FF8C94]/30">
         <div class="max-w-4xl mx-auto">
-            <p class="text-2xl md:text-4xl font-premium italic font-black leading-tight">
+            <p class="text-xl md:text-4xl font-premium italic font-black leading-tight">
                 “Você pode estar vendendo seus ovos de Páscoa mais barato do que deveria — e <span class="text-[#FF8C94]">perdendo dinheiro</span> sem perceber.”
             </p>
         </div>
     </div>
 
-    <!-- Header Centralizado -->
-    <header class="py-12 text-center">
+    <!-- Header -->
+    <header class="py-10 md:py-14 text-center">
         <div class="flex flex-col items-center gap-4 group">
             <div class="bg-[#FF8C94] p-3 rounded-2xl rotate-6 group-hover:rotate-0 transition-all duration-500 shadow-xl shadow-[#FF8C94]/20">
                 <i data-lucide="rabbit" class="text-white w-10 h-10"></i>
             </div>
-            <h1 class="text-6xl md:text-8xl font-premium italic font-black text-[#FF8C94] tracking-tighter">
+            <h1 class="text-5xl md:text-8xl font-premium italic font-black text-[#FF8C94] tracking-tighter">
                 Doce <span class="text-[#4A3728]">Lucro</span>
             </h1>
         </div>
     </header>
 
     <!-- Seção Hero -->
-    <section class="relative pb-24 px-4 text-center">
+    <section class="relative pb-16 md:pb-28 px-4 text-center">
         <div class="max-w-6xl mx-auto relative z-10">
-            <div class="inline-flex items-center gap-3 px-6 py-2 mb-12 text-sm font-black tracking-widest text-[#FF8C94] uppercase bg-white border-2 border-[#FFB7C5] rounded-full shadow-sm font-heading">
+            <div class="inline-flex items-center gap-3 px-6 py-2 mb-10 text-xs md:text-sm font-black tracking-widest text-[#FF8C94] uppercase bg-white border-2 border-[#FFB7C5] rounded-full shadow-sm font-heading">
                 <i data-lucide="sparkles" class="w-4 h-4 text-[#FFD700]"></i> TEMPORADA 2026
             </div>
             
-            <div class="space-y-10 mb-20">
-                <h2 class="text-5xl md:text-8xl font-premium font-black leading-[0.95] text-[#4A3728] max-w-5xl mx-auto text-balance">
-                    Descubra o preço ideal dos seus ovos e <span class="text-[#FF8C94] relative">venda com lucro real.<div class="absolute -bottom-2 left-0 w-full h-4 bg-[#FFD700]/30 -z-10 rounded-full"></div></span>
+            <div class="space-y-8 md:space-y-12 mb-16 md:mb-24">
+                <h2 class="text-4xl md:text-9xl font-premium font-black leading-[0.95] text-[#4A3728] max-w-5xl mx-auto text-balance">
+                    Descubra o preço ideal dos seus ovos e <span class="text-[#FF8C94] relative">venda com lucro real.<div class="absolute -bottom-1 md:-bottom-2 left-0 w-full h-2 md:h-5 bg-[#FFD700]/30 -z-10 rounded-full"></div></span>
                 </h2>
-                <p class="text-2xl md:text-4xl text-stone-600 max-w-3xl mx-auto leading-relaxed font-medium italic font-premium">
-                    A Calculadora que tira a dúvida da sua cabeça e coloca <span class="text-[#4A3728] font-black underline decoration-[#FF8C94]">dinheiro no seu bolso</span>.
+                <p class="text-lg md:text-4xl text-stone-600 max-w-3xl mx-auto leading-relaxed font-medium italic font-premium">
+                    A Calculadora que tira a dúvida da sua cabeça e coloca <span class="text-[#4A3728] font-black underline decoration-[#FF8C94] decoration-4 md:decoration-8">dinheiro no seu bolso</span>.
                 </p>
             </div>
 
-            <!-- Cards de Promessa -->
-            <div class="grid md:grid-cols-2 gap-8 mb-20 text-left">
-                <div class="bg-white p-10 rounded-[3rem] border-2 border-[#98FF98] shadow-xl group hover:scale-[1.02] transition-transform">
-                    <h3 class="text-2xl font-black mb-8 flex items-center gap-3 text-[#4A3728] font-heading">
-                        <div class="bg-[#98FF98] p-2 rounded-xl text-white shadow-sm"><i data-lucide="trending-up" class="w-6 h-6"></i></div>
-                        Com ela você vai:
-                    </h3>
-                    <ul class="space-y-5 text-xl font-bold text-stone-700">
-                        <li class="flex items-center gap-4"><i data-lucide="check" class="text-[#2ECC71]"></i> Calcular o custo exato de cada grama</li>
-                        <li class="flex items-center gap-4"><i data-lucide="percent" class="text-[#2ECC71]"></i> Definir sua margem de lucro real</li>
-                        <li class="flex items-center gap-4"><i data-lucide="check" class="text-[#2ECC71]"></i> Saber quanto sobra no seu bolso</li>
-                        <li class="flex items-center gap-4"><i data-lucide="check" class="text-[#2ECC71]"></i> Cobrar o que você realmente merece</li>
-                    </ul>
-                </div>
-
-                <div class="bg-white p-10 rounded-[3rem] border-2 border-[#FFB7C5] shadow-xl group hover:scale-[1.02] transition-transform opacity-95 text-left">
-                    <h3 class="text-2xl font-black mb-8 flex items-center gap-3 text-[#4A3728] font-heading">
-                        <div class="bg-[#FFB7C5] p-2 rounded-xl text-white shadow-sm"><i data-lucide="zap-off" class="w-6 h-6"></i></div>
-                        Diga adeus ao:
-                    </h3>
-                    <ul class="space-y-5 text-xl font-bold text-stone-700/60">
-                        <li class="flex items-center gap-4 line-through decoration-[#FF8C94] decoration-2"><i data-lucide="x" class="text-[#FF8C94]/50"></i> Pagar para trabalhar (prejuízo)</li>
-                        <li class="flex items-center gap-4 line-through decoration-[#FF8C94] decoration-2"><i data-lucide="x" class="text-[#FF8C94]/50"></i> Horas perdidas em caderninhos</li>
-                        <li class="flex items-center gap-4 line-through decoration-[#FF8C94] decoration-2"><i data-lucide="x" class="text-[#FF8C94]/50"></i> Medo de passar o preço pro cliente</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- VSL Section -->
-            <div class="relative aspect-video w-full max-w-5xl mx-auto bg-stone-900 rounded-[3rem] overflow-hidden shadow-[0_40px_100px_rgba(74,55,40,0.3)] mb-16 border-[12px] border-white group cursor-pointer">
-                <img src="https://images.unsplash.com/photo-1522336572468-97b06e8ef143?q=80&w=2076&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-1000">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                <div class="absolute inset-0 flex items-center justify-center">
-                    <div class="bg-white/95 p-12 rounded-full shadow-2xl group-hover:scale-125 transition-all border-8 border-[#FF8C94]/10">
-                        <i data-lucide="play" class="text-[#FF8C94] fill-[#FF8C94] w-12 h-12 ml-2"></i>
-                    </div>
-                </div>
+            <!-- VSL Section com Video Real -->
+            <div class="vsl-container w-full max-w-5xl mx-auto bg-stone-900 rounded-[2.5rem] md:rounded-[4rem] overflow-hidden shadow-[0_40px_100px_rgba(74,55,40,0.3)] mb-16 md:mb-24 border-[8px] md:border-[16px] border-white group">
+                <iframe src="https://player.vimeo.com/video/1173345298?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Video"></iframe>
             </div>
 
             <!-- Contador Regressivo Persistente (15 Minutos) -->
-            <div class="flex flex-col items-center gap-4 mb-12 timer-block">
-                <p class="text-[#FF8C94] font-black text-lg uppercase tracking-[0.3em] flex items-center gap-3 font-heading">
+            <div class="flex flex-col items-center gap-4 mb-10 md:mb-16 timer-block">
+                <p class="text-[#FF8C94] font-black text-sm md:text-xl uppercase tracking-[0.3em] flex items-center gap-3 font-heading">
                     <i data-lucide="clock" class="w-6 h-6 animate-pulse"></i> OFERTA TERMINA EM:
                 </p>
-                <div class="flex gap-6 timer-display">
-                    <div class="bg-white px-10 py-6 rounded-[2.5rem] border-4 border-[#FFE4E1] shadow-xl min-w-[140px]">
-                        <span class="timer-min text-5xl md:text-7xl font-black text-[#4A3728] font-heading">15</span>
-                        <span class="text-xs block font-black text-[#FF8C94] uppercase tracking-widest mt-2">Minutos</span>
+                <div class="flex gap-4 md:gap-8 timer-display">
+                    <div class="bg-white px-8 py-5 md:px-12 md:py-8 rounded-[2.5rem] border-4 border-[#FFE4E1] shadow-xl min-w-[120px] md:min-w-[180px]">
+                        <span class="timer-min text-4xl md:text-8xl font-black text-[#4A3728] font-heading leading-none">15</span>
+                        <span class="text-[10px] md:text-xs block font-black text-[#FF8C94] uppercase tracking-widest mt-2 md:mt-4">Minutos</span>
                     </div>
-                    <div class="text-5xl md:text-7xl font-black text-[#4A3728] self-center mb-8 font-heading">:</div>
-                    <div class="bg-white px-10 py-6 rounded-[2.5rem] border-4 border-[#FFE4E1] shadow-xl min-w-[140px]">
-                        <span class="timer-sec text-5xl md:text-7xl font-black text-[#4A3728] font-heading">00</span>
-                        <span class="text-xs block font-black text-[#FF8C94] uppercase tracking-widest mt-2">Segundos</span>
+                    <div class="text-5xl md:text-8xl font-black text-[#4A3728] self-center mb-6 md:mb-12 font-heading">:</div>
+                    <div class="bg-white px-8 py-5 md:px-12 md:py-8 rounded-[2.5rem] border-4 border-[#FFE4E1] shadow-xl min-w-[120px] md:min-w-[180px]">
+                        <span class="timer-sec text-4xl md:text-8xl font-black text-[#4A3728] font-heading leading-none">00</span>
+                        <span class="text-[10px] md:text-xs block font-black text-[#FF8C94] uppercase tracking-widest mt-2 md:mt-4">Segundos</span>
                     </div>
                 </div>
-                <p class="timer-ended hidden text-3xl font-black text-[#FF8C94] uppercase tracking-tighter font-heading bg-white p-6 rounded-3xl border-2 border-[#FF8C94]">Oferta encerrada, volte amanhã.</p>
+                <p class="timer-ended hidden text-2xl md:text-4xl font-black text-[#FF8C94] uppercase tracking-tighter font-heading bg-white p-6 rounded-3xl border-4 border-[#FF8C94]">Oferta encerrada, volte amanhã.</p>
             </div>
 
-            <a href="LINK_DO_CHECKOUT" class="group w-full sm:w-auto bg-[#FF8C94] text-white text-3xl md:text-5xl px-20 py-10 rounded-[3rem] font-black shadow-2xl hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-6 mx-auto border-b-[12px] border-[#e6737c] no-underline font-heading uppercase tracking-tighter">
+            <a href="LINK_DO_CHECKOUT" class="group w-full sm:w-auto bg-[#FF8C94] text-xl md:text-5xl px-12 py-8 md:px-24 md:py-12 rounded-[2.5rem] md:rounded-[4rem] font-black shadow-2xl hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-4 md:gap-8 mx-auto border-b-[10px] md:border-b-[16px] border-[#e6737c] no-underline font-heading uppercase tracking-tighter text-white">
                 QUERO LUCRAR AGORA
-                <i data-lucide="arrow-right" class="group-hover:translate-x-4 transition-transform w-12 h-12"></i>
+                <i data-lucide="arrow-right" class="group-hover:translate-x-4 transition-transform w-8 h-8 md:w-16 md:h-16"></i>
             </a>
         </div>
     </section>
 
-    <!-- SEÇÃO: RESULTADOS DE ELITE (FOTOS REORGANIZADAS) -->
-    <section class="py-32 px-4 bg-white">
+    <!-- SEÇÃO: RESULTADOS DE ELITE (FOTOS) -->
+    <section class="py-24 md:py-32 px-4 bg-white">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-24">
-                <h2 class="text-5xl md:text-8xl font-premium font-black text-[#4A3728] leading-none mb-6">Resultados de Elite</h2>
-                <p class="text-2xl text-stone-500 font-medium font-premium italic">O segredo das confeitarias que faturam alto todos os anos.</p>
+            <div class="text-center mb-20 md:mb-32">
+                <h2 class="text-4xl md:text-[7rem] font-premium font-black text-[#4A3728] leading-none mb-6">Resultados de Elite</h2>
+                <p class="text-lg md:text-3xl text-stone-500 font-medium font-premium italic">O segredo das confeitarias que faturam alto todos os anos.</p>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-20 items-center">
+            <div class="grid lg:grid-cols-2 gap-16 md:gap-24 items-center">
                 <!-- Coluna de Prova Visual -->
-                <div class="space-y-12">
-                    <div class="relative group">
-                        <img src="https://i.ibb.co/SgM30y7/IMG-1366.png" alt="Ovos de Chocolate" class="relative rounded-[4rem] shadow-2xl border-[15px] border-white object-cover w-full transform rotate-1 transition-transform group-hover:rotate-0 duration-700">
+                <div class="space-y-12 md:space-y-16">
+                    <div class="relative group px-4 md:px-0">
+                        <img src="https://i.ibb.co/SgM30y7/IMG-1366.png" alt="Ovos de Chocolate" class="relative rounded-[3rem] md:rounded-[5rem] shadow-2xl border-[10px] md:border-[20px] border-white object-cover w-full transform rotate-1 transition-transform group-hover:rotate-0 duration-700">
                     </div>
-                    <div class="relative group">
-                        <img src="https://i.ibb.co/35TZBTJb/IMG-1362.png" alt="Ovos e Gestão" class="relative rounded-[3rem] shadow-xl border-8 border-white object-cover w-full transform -rotate-1 transition-transform group-hover:rotate-0 duration-700">
+                    <div class="relative group px-10 md:px-0">
+                        <img src="https://i.ibb.co/35TZBTJb/IMG-1362.png" alt="Ovos e Gestão" class="relative rounded-[2.5rem] md:rounded-[4rem] shadow-xl border-8 md:border-[12px] border-white object-cover w-full transform -rotate-1 transition-transform group-hover:rotate-0 duration-700">
                     </div>
                 </div>
 
                 <!-- Coluna de Texto e Interface -->
                 <div class="flex flex-col gap-10">
-                    <div class="bg-[#FFFAF0] p-12 rounded-[4rem] border-2 border-[#FFE4E1] shadow-sm relative overflow-hidden">
-                        <div class="absolute top-0 right-0 p-6 opacity-10 text-[#FF8C94]"><i data-lucide="crown" class="w-20 h-20"></i></div>
-                        <h4 class="text-4xl font-black mb-8 font-heading text-[#4A3728] leading-tight uppercase italic text-left">Controle profissional na palma da sua mão</h4>
-                        <p class="text-xl text-stone-600 leading-relaxed mb-10 text-left font-medium">
+                    <div class="bg-[#FFFAF0] p-8 md:p-14 rounded-[3rem] md:rounded-[5rem] border-2 border-[#FFE4E1] shadow-sm relative overflow-hidden text-left">
+                        <div class="absolute top-0 right-0 p-4 md:p-8 opacity-10 text-[#FF8C94]"><i data-lucide="crown" class="w-16 h-16 md:w-32 md:h-32"></i></div>
+                        <h4 class="text-2xl md:text-5xl font-black mb-6 md:mb-10 font-heading text-[#4A3728] leading-tight uppercase italic">Controle profissional na palma da sua mão</h4>
+                        <p class="text-lg md:text-2xl text-stone-600 leading-relaxed mb-10 font-medium">
                             Nossa tecnologia foi desenhada para a confeiteira moderna. Saiba exatamente quanto cobrar, quanto gastar e quanto vai sobrar na sua conta bancária.
                         </p>
                         <!-- Imagem da Interface da Calculadora -->
-                        <div class="rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white group">
-                            <img src="https://i.ibb.co/tN080ty/Chat-GPT-Image-13-de-mar-de-2026-11-32-06.png" alt="Interface Calculadora" class="w-full group-hover:scale-105 transition-transform duration-500">
+                        <div class="rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border-4 md:border-[10px] border-white group">
+                            <img src="https://i.ibb.co/tN080ty/Chat-GPT-Image-13-de-mar-de-2026-11-32-06.png" alt="Interface Calculadora" class="w-full group-hover:scale-110 transition-transform duration-700">
                         </div>
-                    </div>
-                    
-                    <div class="flex items-center gap-6 px-6">
-                        <div class="bg-[#98FF98] p-3 rounded-full text-white"><i data-lucide="shield-check" class="w-8 h-8"></i></div>
-                        <p class="font-black text-2xl uppercase tracking-widest font-heading text-[#4A3728]">Método Aprovado</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SUPER BÔNUS (IMAGEM DA PLANILHA ATUALIZADA) -->
-    <section class="py-32 px-4 relative overflow-hidden bg-[#FFFAF0]">
+    <!-- SUPER BÔNUS (MOCKUP PREMIUM COM NOVA IMAGEM) -->
+    <section class="py-24 md:py-40 px-4 relative overflow-hidden bg-[#FFFAF0]">
         <div class="max-w-7xl mx-auto">
-            <div class="relative bg-gradient-to-br from-[#FF8C94] via-[#FFB7C5] to-[#FF8C94] rounded-[6rem] p-3 md:p-6 shadow-[0_60px_120px_rgba(255,140,148,0.3)] border-8 border-white">
-                <div class="bg-white rounded-[5.5rem] p-12 md:p-28 flex flex-col lg:flex-row items-center gap-24 overflow-hidden relative">
+            <div class="relative bg-gradient-to-br from-[#FF8C94] via-[#FFB7C5] to-[#FF8C94] rounded-[4rem] md:rounded-[8rem] p-3 md:p-10 shadow-[0_60px_120px_rgba(255,140,148,0.3)] border-[6px] md:border-[15px] border-white">
+                <div class="bg-white rounded-[3.5rem] md:rounded-[6.5rem] p-8 md:p-32 flex flex-col lg:flex-row items-center gap-16 md:gap-24 overflow-hidden relative">
                     
                     <div class="flex-1 text-center lg:text-left z-10">
-                        <div class="inline-flex items-center gap-4 px-10 py-4 bg-[#FFF5F7] text-[#FF8C94] rounded-full font-black text-sm mb-12 shadow-md border-2 border-[#FFE4E1] animate-bounce">
+                        <div class="inline-flex items-center gap-4 px-8 py-3 md:px-12 md:py-5 bg-[#FFF5F7] text-[#FF8C94] rounded-full font-black text-xs md:text-sm mb-10 md:mb-16 shadow-md border-2 border-[#FFE4E1] animate-bounce">
                             <i data-lucide="gem" class="w-8 h-8"></i> PRESENTE EXCLUSIVO
                         </div>
-                        <h2 class="text-6xl md:text-9xl font-premium font-black mb-10 leading-tight text-[#4A3728]">
-                            <span class="text-[#FF8C94] block mb-4 uppercase text-4xl tracking-widest italic font-heading">Super Bônus:</span>
+                        <h2 class="text-4xl md:text-9xl font-premium font-black mb-8 md:mb-12 leading-tight text-[#4A3728] text-balance">
+                            <span class="text-[#FF8C94] block mb-3 md:mb-6 uppercase text-xl md:text-5xl tracking-widest italic font-heading">Super Bônus:</span>
                             Planilha Inteligente de Precificação
                         </h2>
                         
-                        <p class="text-3xl text-stone-600 mb-14 leading-relaxed font-bold font-premium italic">
-                            Além da calculadora, você recebe a ferramenta definitiva que automatiza sua margem de lucro e garante que você nunca mais venda barato demais.
+                        <p class="text-xl md:text-3xl text-stone-600 mb-10 md:mb-16 leading-relaxed font-bold font-premium italic">
+                            Além da calculadora, você recebe a planilha definitiva que automatiza sua margem de lucro e garante que você nunca mais venda barato demais.
                         </p>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-                            <div class="flex items-center gap-5 bg-[#FFFAF0] p-8 rounded-[2.5rem] border-2 border-[#FFE4E1] hover:border-[#FF8C94] transition-all group">
-                                <i data-lucide="target" class="text-[#FF8C94] w-10 h-10 group-hover:scale-110 transition-transform"></i>
-                                <span class="font-black text-xl text-[#4A3728]">Cálculo em segundos</span>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 mb-12 md:mb-20">
+                            <div class="flex items-center gap-5 bg-[#FFFAF0] p-6 md:p-10 rounded-[2.5rem] md:rounded-[3rem] border-2 border-[#FFE4E1] hover:border-[#FF8C94] transition-all">
+                                <i data-lucide="calculator" class="text-[#FF8C94] w-10 h-10 md:w-14 md:h-14"></i>
+                                <span class="font-black text-xl md:text-2xl text-[#4A3728]">Preço automático</span>
                             </div>
-                            <div class="flex items-center gap-5 bg-[#FFFAF0] p-8 rounded-[2.5rem] border-2 border-[#FFE4E1] hover:border-[#FF8C94] transition-all group">
-                                <i data-lucide="badge-percent" class="text-[#FF8C94] w-10 h-10 group-hover:scale-110 transition-transform"></i>
-                                <span class="font-black text-xl text-[#4A3728]">Lucro Maximizado</span>
+                            <div class="flex items-center gap-5 bg-[#FFFAF0] p-6 md:p-10 rounded-[2.5rem] md:rounded-[3rem] border-2 border-[#FFE4E1] hover:border-[#FF8C94] transition-all">
+                                <i data-lucide="check-circle" class="text-[#FF8C94] w-10 h-10 md:w-14 md:h-14"></i>
+                                <span class="font-black text-xl md:text-2xl text-[#4A3728]">Margem de lucro</span>
                             </div>
                         </div>
 
-                        <div class="bg-[#4A3728] text-white p-10 rounded-[3.5rem] flex flex-col md:flex-row items-center gap-8 shadow-2xl border-4 border-[#FF8C94]">
+                        <div class="bg-[#4A3728] text-white p-8 md:p-12 rounded-[3rem] md:rounded-[4rem] flex flex-col md:flex-row items-center gap-8 shadow-2xl border-4 md:border-8 border-[#FF8C94] group">
                             <div class="flex gap-6">
-                                <i data-lucide="smartphone" class="w-14 h-14 text-[#FFB7C5]"></i>
-                                <i data-lucide="monitor" class="w-14 h-14 text-[#FFB7C5]"></i>
+                                <i data-lucide="smartphone" class="w-12 h-12 md:w-20 md:h-20 text-[#FFB7C5] group-hover:scale-110 transition-transform"></i>
+                                <i data-lucide="monitor" class="w-12 h-12 md:w-20 md:h-20 text-[#FFB7C5] group-hover:scale-110 transition-transform"></i>
                             </div>
-                            <p class="text-2xl font-black uppercase tracking-widest text-center md:text-left leading-tight font-heading">
+                            <p class="text-xl md:text-3xl font-black uppercase tracking-widest text-center md:text-left leading-tight font-heading">
                                 Use no seu <span class="text-[#FF8C94]">Celular</span> ou <span class="text-[#FF8C94]">Computador</span>
                             </p>
                         </div>
                     </div>
 
-                    <!-- Mockup da Planilha com Imagem SWm5z46 -->
+                    <!-- MOCKUP DA PLANILHA ( Chat-GPT-Image-13-de-mar-de-2026-11-51-01 ) -->
                     <div class="flex-1 w-full flex justify-center z-10 lg:pr-10">
                         <div class="relative group w-full max-w-xl scale-110">
-                            <div class="absolute inset-0 bg-[#FF8C94] rounded-[5rem] blur-[100px] opacity-40"></div>
-                            <div class="relative bg-white p-14 rounded-[5rem] shadow-2xl border-[15px] border-[#FFF5F7] -rotate-3 group-hover:rotate-0 transition-all duration-1000 overflow-hidden text-center">
-                                <div class="absolute top-0 left-0 w-full h-3 bg-gradient-to-r from-[#FF8C94] via-[#FFD700] to-[#FF8C94]"></div>
+                            <div class="absolute inset-0 bg-[#FF8C94] rounded-[5rem] blur-[120px] opacity-40"></div>
+                            
+                            <!-- Design Estilo Aplicação Móvel -->
+                            <div class="relative bg-white p-4 md:p-8 rounded-[3.5rem] md:rounded-[6rem] shadow-2xl border-[10px] md:border-[20px] border-[#FFF5F7] -rotate-2 group-hover:rotate-0 transition-all duration-1000 overflow-hidden text-center">
+                                <div class="absolute top-0 left-0 w-full h-4 bg-gradient-to-r from-[#FF8C94] via-[#FFD700] to-[#FF8C94]"></div>
                                 
-                                <div class="rounded-[3rem] overflow-hidden shadow-inner border-4 border-[#FFE4E1] mb-12">
-                                    <img src="https://i.ibb.co/SWm5z46/Chat-GPT-Image-13-de-mar-de-2026-11-51-01.png" alt="Amostra da Planilha Profissional" class="w-full object-cover">
+                                <div class="rounded-[2.5rem] md:rounded-[4rem] overflow-hidden shadow-2xl border-4 md:border-8 border-white mb-10 md:mb-16">
+                                    <img src="https://i.ibb.co/SWm5z46/Chat-GPT-Image-13-de-mar-de-2026-11-51-01.png" alt="Foto da Planilha" class="w-full object-cover">
                                 </div>
 
-                                <div class="bg-gradient-to-br from-[#FFFAF0] to-white rounded-[3rem] p-10 border-2 border-[#FFE4E1] mb-10">
-                                    <i data-lucide="check-circle-2" class="text-[#FF8C94] mb-4 animate-pulse w-16 h-16 mx-auto"></i>
-                                    <p class="text-[#4A3728] font-black text-2xl uppercase tracking-widest font-heading">Acesso Vitalício</p>
+                                <div class="bg-gradient-to-br from-[#FFFAF0] to-white rounded-[2.5rem] md:rounded-[4rem] p-8 md:p-12 border-2 border-[#FFE4E1] mb-10 md:mb-14 shadow-inner">
+                                    <i data-lucide="shield-check" class="text-[#FF8C94] mb-4 animate-pulse w-14 h-14 md:w-24 md:h-24 mx-auto"></i>
+                                    <p class="text-[#4A3728] font-black text-2xl md:text-4xl uppercase tracking-widest font-heading">Download Liberado</p>
                                 </div>
-                                <a href="LINK_DO_CHECKOUT" class="bg-[#FF8C94] py-8 rounded-[2.5rem] flex items-center justify-center text-white font-black text-2xl shadow-2xl shadow-[#FF8C94]/40 cursor-pointer hover:bg-[#ff7b85] transition-all no-underline font-heading uppercase">
-                                    RECEBER TUDO AGORA 📥
+
+                                <a href="LINK_DO_CHECKOUT" class="bg-[#FF8C94] py-8 md:py-10 rounded-[2rem] md:rounded-[3rem] flex items-center justify-center text-white font-black text-2xl md:text-4xl shadow-2xl shadow-[#FF8C94]/40 cursor-pointer hover:bg-[#ff7b85] transition-all no-underline font-heading uppercase">
+                                    BAIXAR AGORA 📥
                                 </a>
                             </div>
                         </div>
@@ -274,120 +249,84 @@
         </div>
     </section>
 
-    <!-- Seção Como Funciona -->
-    <section class="py-32 px-4 bg-white text-center">
-        <div class="max-w-7xl mx-auto flex flex-col gap-24">
-            <h2 class="text-6xl md:text-9xl font-premium font-black italic text-[#FF8C94] leading-none tracking-tighter">Simples. Prático. <br> Lucrativo.</h2>
-            
-            <div class="flex flex-col md:flex-row items-center gap-24 text-left">
-                <div class="flex-1 relative order-2 md:order-1">
-                   <div class="absolute -inset-10 bg-gradient-to-tr from-[#FFD700] to-[#FF8C94] rounded-[5rem] blur-3xl opacity-20"></div>
-                   <img src="https://i.ibb.co/8gJB8J4V/9-B42-B271-6-E60-4-C2-E-9-DEE-23-A5-AE20-D40-D.png" alt="Ovos Profissionais" class="relative rounded-[5rem] shadow-2xl border-[15px] border-white object-cover h-[750px] w-full transform hover:scale-105 transition-all duration-700">
-                </div>
-                <div class="flex-1 space-y-16 order-1 md:order-2">
-                    <div class="flex gap-10 group">
-                        <div class="text-8xl md:text-9xl font-premium italic text-[#FFD700] font-black opacity-30 leading-none group-hover:opacity-100 transition-opacity">01</div>
-                        <div>
-                            <h4 class="text-3xl font-black mb-4 font-heading text-[#4A3728] uppercase">Cadastre os Preços</h4>
-                            <p class="text-xl text-stone-600 leading-relaxed font-medium">Insira o valor pago nos ingredientes uma única vez. A calculadora guarda tudo.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-10 group">
-                        <div class="text-8xl md:text-9xl font-premium italic text-[#FFD700] font-black opacity-30 leading-none group-hover:opacity-100 transition-opacity">02</div>
-                        <div>
-                            <h4 class="text-3xl font-black mb-4 font-heading text-[#4A3728] uppercase">Mão de Obra Real</h4>
-                            <p class="text-xl text-stone-600 leading-relaxed font-bold">Defina seu ganho por hora. A ferramenta calcula quanto custa cada minuto da sua produção.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-10 group text-[#FF8C94]">
-                        <div class="text-8xl md:text-9xl font-premium italic text-[#FF8C94] font-black opacity-30 leading-none group-hover:opacity-100 transition-opacity">03</div>
-                        <div>
-                            <h4 class="text-3xl font-black mb-4 font-heading uppercase tracking-tighter">Lucro Garantido</h4>
-                            <p class="text-xl leading-relaxed text-[#4A3728] font-medium">Pronto! Tenha em mãos o preço de venda ideal com a margem exata que você deseja.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- FAQ Section -->
-    <section class="py-32 px-4 bg-[#FFFAF0]">
+    <section class="py-24 md:py-40 px-4 bg-white">
         <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-24 text-[#4A3728]">
+            <div class="text-center mb-20 md:mb-32 text-[#4A3728]">
                 <i data-lucide="help-circle" class="mx-auto mb-8 w-20 h-20 text-[#FF8C94]"></i>
-                <h2 class="text-6xl md:text-8xl font-premium font-black">Dúvidas Frequentes</h2>
+                <h2 class="text-5xl md:text-[8rem] font-premium font-black leading-none">Dúvidas Frequentes</h2>
             </div>
-            <div class="space-y-8" id="faq-container">
-                <!-- FAQ via JS -->
+            <div class="space-y-6 md:space-y-10" id="faq-container">
+                <!-- FAQs via JS -->
             </div>
         </div>
     </section>
 
     <!-- Final CTA -->
-    <section id="checkout" class="py-32 px-4 mb-32 text-center text-white">
-        <div class="max-w-7xl mx-auto bg-[#4A3728] rounded-[6rem] p-16 md:p-40 relative overflow-hidden shadow-2xl border-[15px] border-[#5D4037]">
-            <div class="absolute top-0 right-0 p-10 opacity-10 text-[#FFD700] scale-[3] rotate-12">
+    <section id="checkout" class="py-24 md:py-40 px-4 mb-20 text-center text-white">
+        <div class="max-w-7xl mx-auto bg-[#4A3728] rounded-[4rem] md:rounded-[8rem] p-12 md:p-48 relative overflow-hidden shadow-2xl border-[15px] md:border-[30px] border-[#3A2B1F]">
+            <div class="absolute top-0 right-0 p-10 opacity-10 text-[#FFD700] scale-[3] md:scale-[5] rotate-12">
                 <i data-lucide="rabbit" class="w-64 h-64"></i>
             </div>
             
             <div class="relative z-10 text-center">
-                <h2 class="text-6xl md:text-9xl font-premium font-black mb-20 leading-tight italic text-white tracking-tighter">
+                <h2 class="text-5xl md:text-[10rem] font-premium font-black mb-16 md:mb-32 leading-tight italic text-white tracking-tighter">
                     Sua Páscoa Lucrativa <br/> Começa Agora!
                 </h2>
                 
-                <div class="mb-20 flex flex-col items-center">
-                    <span class="bg-white/10 px-12 py-4 rounded-full text-[#FFB7C5] line-through text-3xl mb-8 font-black font-heading">De R$ 97,00</span>
-                    <div class="text-9xl md:text-[12rem] font-black text-[#FFD700] drop-shadow-[0_15px_15px_rgba(0,0,0,0.4)] font-heading leading-none">R$ 29,99</div>
-                    <p class="mt-8 text-[#FFB7C5] font-black tracking-[0.5em] uppercase text-lg font-heading">PAGAMENTO ÚNICO • ACESSO VITALÍCIO</p>
+                <div class="mb-16 md:mb-32 flex flex-col items-center">
+                    <span class="bg-white/10 px-10 py-4 rounded-full text-[#FFB7C5] line-through text-2xl md:text-5xl mb-6 md:mb-12 font-black font-heading">De R$ 97,00</span>
+                    <div class="text-8xl md:text-[16rem] font-black text-[#FFD700] drop-shadow-[0_20px_20px_rgba(0,0,0,0.5)] font-heading leading-none">R$ 29,99</div>
+                    <p class="mt-8 md:mt-12 text-[#FFB7C5] font-black tracking-[0.4em] md:tracking-[0.6em] uppercase text-sm md:text-2xl font-heading opacity-80">PAGAMENTO ÚNICO • ACESSO VITALÍCIO</p>
                 </div>
 
-                <!-- Contador Final -->
-                <div class="flex flex-col items-center gap-6 mb-16 timer-block">
-                    <p class="text-[#FFB7C5] font-black text-xl uppercase tracking-[0.4em] flex items-center gap-4 font-heading">
-                        <i data-lucide="zap" class="w-8 h-8 text-[#FFD700]"></i> ⚠️ OFERTA TERMINA EM:
+                <!-- Contador Final (Persistente) -->
+                <div class="flex flex-col items-center gap-6 mb-16 md:mb-32 timer-block">
+                    <p class="text-[#FFB7C5] font-black text-lg md:text-2xl uppercase tracking-[0.3em] md:tracking-[0.5em] flex items-center gap-4 font-heading">
+                        <i data-lucide="zap" class="w-8 h-8 md:w-12 md:h-12 text-[#FFD700]"></i> ⚠️ OFERTA TERMINA EM:
                     </p>
-                    <div class="flex gap-6 timer-display">
-                        <div class="bg-white px-10 py-6 rounded-[2.5rem] shadow-xl min-w-[140px] text-[#4A3728]">
-                            <span class="timer-min text-5xl md:text-7xl font-black">15</span>
-                            <span class="text-[10px] block font-black text-[#FF8C94] uppercase mt-2">Minutos</span>
+                    <div class="flex gap-6 md:gap-12 timer-display">
+                        <div class="bg-white px-10 py-6 md:px-16 md:py-10 rounded-[2.5rem] md:rounded-[4rem] shadow-2xl min-w-[140px] md:min-w-[240px] text-[#4A3728]">
+                            <span class="timer-min text-5xl md:text-[10rem] font-black leading-none">15</span>
+                            <span class="text-xs md:text-lg block font-black text-[#FF8C94] uppercase tracking-widest mt-2 md:mt-6">Minutos</span>
                         </div>
-                        <div class="text-5xl md:text-7xl font-black text-white self-center mb-8">:</div>
-                        <div class="bg-white px-10 py-6 rounded-[2.5rem] shadow-xl min-w-[140px] text-[#4A3728]">
-                            <span class="timer-sec text-5xl md:text-7xl font-black">00</span>
-                            <span class="text-[10px] block font-black text-[#FF8C94] uppercase mt-2">Segundos</span>
+                        <div class="text-5xl md:text-[10rem] font-black text-white self-center mb-8 md:mb-20">:</div>
+                        <div class="bg-white px-10 py-6 md:px-16 md:py-10 rounded-[2.5rem] md:rounded-[4rem] shadow-2xl min-w-[140px] md:min-w-[240px] text-[#4A3728]">
+                            <span class="timer-sec text-5xl md:text-[10rem] font-black leading-none">00</span>
+                            <span class="text-xs md:text-lg block font-black text-[#FF8C94] uppercase tracking-widest mt-2 md:mt-6">Segundos</span>
                         </div>
                     </div>
-                    <p class="timer-ended hidden text-3xl font-black text-[#FFD700] uppercase tracking-tighter">Oferta encerrada, volte amanhã.</p>
+                    <p class="timer-ended hidden text-3xl md:text-6xl font-black text-[#FFD700] uppercase tracking-tighter bg-white/10 p-10 rounded-[4rem]">Oferta encerrada, volte amanhã.</p>
                 </div>
 
-                <a href="LINK_DO_CHECKOUT" class="group w-full md:w-auto bg-[#FF8C94] text-white text-3xl px-24 py-12 rounded-[4rem] font-black shadow-2xl hover:scale-110 active:scale-90 transition-all flex items-center justify-center gap-6 mx-auto border-b-[15px] border-[#e6737c] no-underline uppercase font-heading tracking-tighter shadow-[#000]/30">
+                <a href="LINK_DO_CHECKOUT" class="group w-full md:w-auto bg-[#FF8C94] text-white text-3xl md:text-6xl px-16 py-10 md:px-32 md:py-16 rounded-[2.5rem] md:rounded-[5rem] font-black shadow-2xl hover:scale-110 active:scale-90 transition-all flex items-center justify-center gap-6 md:gap-12 mx-auto border-b-[15px] md:border-b-[25px] border-[#e6737c] no-underline uppercase font-heading tracking-tighter shadow-black/40">
                     COMPRAR COM DESCONTO HOJE
-                    <i data-lucide="arrow-right" class="group-hover:translate-x-4 transition-transform w-14 h-14"></i>
+                    <i data-lucide="arrow-right" class="group-hover:translate-x-6 transition-transform w-12 h-12 md:w-24 md:h-24"></i>
                 </a>
                 
-                <p class="mt-14 text-stone-400 flex items-center justify-center gap-4 font-black text-xl">
-                    <i data-lucide="shield-check" class="text-[#98FF98] w-8 h-8"></i> Garantia incondicional de 7 dias
+                <p class="mt-14 md:mt-24 text-stone-400 flex items-center justify-center gap-4 md:gap-8 font-black text-xl md:text-4xl opacity-80">
+                    <i data-lucide="shield-check" class="text-[#98FF98] w-10 h-10 md:w-16 md:h-16"></i> Garantia incondicional de 7 dias
                 </p>
             </div>
         </div>
     </section>
 
     <!-- Rodapé -->
-    <footer class="py-24 bg-[#4A3728] text-center text-[#FFB7C5] border-t-8 border-[#5D4037]">
+    <footer class="py-24 md:py-40 bg-[#4A3728] text-center text-[#FFB7C5] border-t-8 border-[#3A2B1F]">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-center items-center gap-5 mb-12 group">
-                <div class="bg-[#FF8C94] p-3 rounded-2xl shadow-lg">
-                    <i data-lucide="rabbit" class="text-white w-10 h-10"></i>
+            <div class="flex justify-center items-center gap-6 mb-12 group">
+                <div class="bg-[#FF8C94] p-3 rounded-2xl shadow-2xl">
+                    <i data-lucide="rabbit" class="text-white w-12 h-12"></i>
                 </div>
-                <span class="text-5xl font-premium italic font-black tracking-tighter text-white">Doce Lucro</span>
+                <span class="text-5xl md:text-8xl font-premium italic font-black tracking-tighter text-white">Doce Lucro</span>
             </div>
-            <p class="opacity-50 text-xl mb-12 font-medium">© 2026 Todos os direitos reservados. Lucrar com confeitaria nunca foi tão fácil.</p>
+            <p class="opacity-50 text-xl md:text-3xl mb-12 font-medium px-4">© 2026 Todos os direitos reservados. Lucrar com confeitaria nunca foi tão simples.</p>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script>
+        // Dados do FAQ (Português do Brasil)
         const faqs = [
             {
                 question: "Funciona no celular?",
@@ -407,16 +346,17 @@
             }
         ];
 
+        // Renderizar FAQ
         function renderFaqs() {
             const container = document.getElementById('faq-container');
             container.innerHTML = faqs.map((faq, index) => `
-                <div class="faq-item bg-white rounded-[3rem] overflow-hidden border-2 border-[#FFE4E1] transition-all hover:border-[#FF8C94] shadow-sm">
-                    <button onclick="toggleFaq(${index})" class="w-full flex justify-between items-center p-10 text-left font-black text-2xl md:text-3xl text-[#4A3728] font-premium">
+                <div class="faq-item bg-white rounded-[2.5rem] md:rounded-[4rem] overflow-hidden border-2 border-[#FFE4E1] transition-all hover:border-[#FF8C94] shadow-sm">
+                    <button onclick="toggleFaq(${index})" class="w-full flex justify-between items-center p-8 md:p-14 text-left font-black text-xl md:text-4xl text-[#4A3728] font-premium leading-tight">
                         ${faq.question}
-                        <i data-lucide="chevron-down" class="chevron text-[#FF8C94] transition-transform duration-300 w-10 h-10"></i>
+                        <i data-lucide="chevron-down" class="chevron text-[#FF8C94] transition-transform duration-300 w-10 h-10 md:w-16 md:h-16"></i>
                     </button>
-                    <div class="faq-content">
-                        <div class="px-10 pb-10 text-stone-600 text-xl md:text-2xl leading-relaxed">
+                    <div class="faq-content text-left">
+                        <div class="px-8 md:px-14 pb-8 md:pb-14 text-stone-600 text-lg md:text-3xl leading-relaxed">
                             ${faq.answer}
                         </div>
                     </div>
@@ -425,13 +365,14 @@
             lucide.createIcons();
         }
 
+        // Lógica do Timer Persistente (15 Minutos via localStorage)
         function startCountdown() {
-            const duration = 15 * 60 * 1000;
-            let deadline = localStorage.getItem('doce_lucro_vFinal_deadline');
+            const duration = 15 * 60 * 1000; // 15 mins em ms
+            let deadline = localStorage.getItem('doce_lucro_timer_deadline_vFinal');
 
             if (!deadline) {
                 deadline = Date.now() + duration;
-                localStorage.setItem('doce_lucro_vFinal_deadline', deadline);
+                localStorage.setItem('doce_lucro_timer_deadline_vFinal', deadline);
             }
 
             const updateTimer = () => {
@@ -463,6 +404,7 @@
             const interval = setInterval(updateTimer, 1000);
         }
 
+        // Accordion do FAQ
         window.toggleFaq = (index) => {
             const items = document.querySelectorAll('.faq-item');
             const clickedItem = items[index];
